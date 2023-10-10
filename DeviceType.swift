@@ -11,16 +11,18 @@ final class DeviceType{
     
     ///Get device type as phone, pad, and so on
     public static func getDeviceType() -> Int{
-        var deviceType = UIDevice.current.userInterfaceIdiom.rawValue
+        let deviceType = UIDevice.current.userInterfaceIdiom.rawValue
         
-        print("Device type from swfit: \(deviceType)")
-        
+        print("[Swift] Device type from swfit: \(deviceType)")
         
         return deviceType
     }
     
-    ///Get the device identifier in pattern iPhone11,2
-    public static func getDeviceIdentifier() -> String {
+    ///Get the device identifier in pattern 11, 12 and so on.
+    ///Ref: https://www.theiphonewiki.com/wiki/Models
+    public static func getDeviceIdentifier() -> Int {
+        let deviceIdentifier = -1
+        
         var systemInfo = utsname()
         uname(&systemInfo)
         
@@ -28,10 +30,33 @@ final class DeviceType{
             $0.withMemoryRebound(to: CChar.self, capacity: 1) {
                 ptr in String.init(validatingUTF8: ptr)
             }
-        } ?? "Device identifier not found"
+        }
         
-        print("Device identifier: \(String(describing: modelCode))")
+        //iPhone13,3
+        //split into two strings: "iPhone13" and "3"
+        guard let splitFullName = modelCode?.split(separator: ",") else {
+            return -1
+        }
         
-        return modelCode
+        print("Device full identifier: \(String(describing: modelCode))")
+        
+        guard let nameAndNumber = splitFullName.first else {
+            return -1
+        }
+        
+        print("Name and number: \(nameAndNumber)")
+        
+        if nameAndNumber.contains("iPhone") {
+            if let result = Int(nameAndNumber.replacingOccurrences(of: "iPhone", with: "", options: NSString.CompareOptions.literal, range: nil)){
+                
+                print("[Swift] Device identifier: \(String(describing: result))")
+                
+                return result
+            }
+        }
+        
+        print("[Swift] Device identifier: \(String(describing: deviceIdentifier))")
+        
+        return deviceIdentifier
     }
 }

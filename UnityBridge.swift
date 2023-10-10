@@ -13,6 +13,6 @@ public func getDeviceType() -> Int{
 }
 
 @_cdecl("getDeviceIdentifier")
-public func getDeviceIdentifier() -> String{
+public func getDeviceIdentifier() -> Int{
     DeviceType.getDeviceIdentifier()
 }
