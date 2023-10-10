@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		77BFD7772AD491E200D2F932 /* CheckDeviceType.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BFD7762AD491E200D2F932 /* CheckDeviceType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BFD77E2AD491F400D2F932 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BFD77D2AD491F400D2F932 /* DeviceType.swift */; };
+		77BFD7802AD4A37400D2F932 /* UnityBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BFD77F2AD4A37400D2F932 /* UnityBridge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		77BFD7732AD491E200D2F932 /* CheckDeviceType.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CheckDeviceType.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BFD7762AD491E200D2F932 /* CheckDeviceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckDeviceType.h; sourceTree = "<group>"; };
+		77BFD77D2AD491F400D2F932 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		77BFD77F2AD4A37400D2F932 /* UnityBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnityBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,8 @@
 		77BFD7692AD491E200D2F932 = {
 			isa = PBXGroup;
 			children = (
+				77BFD77F2AD4A37400D2F932 /* UnityBridge.swift */,
+				77BFD77D2AD491F400D2F932 /* DeviceType.swift */,
 				77BFD7752AD491E200D2F932 /* CheckDeviceType */,
 				77BFD7742AD491E200D2F932 /* Products */,
 			);
@@ -93,6 +99,7 @@
 				TargetAttributes = {
 					77BFD7722AD491E200D2F932 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -129,6 +136,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BFD7802AD4A37400D2F932 /* UnityBridge.swift in Sources */,
+				77BFD77E2AD491F400D2F932 /* DeviceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +262,7 @@
 		77BFD77B2AD491E200D2F932 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -264,7 +274,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -281,8 +291,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -291,6 +304,7 @@
 		77BFD77C2AD491E200D2F932 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -302,7 +316,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -319,7 +333,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
