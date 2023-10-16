@@ -9,10 +9,27 @@ import Foundation
 
 @_cdecl("getDeviceType")
 public func getDeviceType() -> Int{
-    DeviceType.getDeviceType()
+    let deviceType = DeviceType.getDeviceType()
+    
+    print("[Swift] Device type from swift: \(deviceType)")
+    
+    return deviceType
 }
 
 @_cdecl("getDeviceIdentifier")
 public func getDeviceIdentifier() -> Int{
-    DeviceType.getDeviceIdentifier()
+    let deviceIdentifier = DeviceType.getDeviceIdentifier()
+    
+    print("[Swift] Device identifier: \(String(describing: deviceIdentifier))")
+    
+    return deviceIdentifier
+}
+
+@_cdecl("getBuildNumber")
+public func getBuildNumber() -> Int{
+    let buildNumber = Int(DeviceType.getBuildNumber())
+    
+    print("[Swift] Build number: \(String(describing: buildNumber))")
+    
+    return buildNumber ?? 1
 }
